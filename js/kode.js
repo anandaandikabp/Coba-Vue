@@ -12,7 +12,6 @@ const vm = new Vue({
         menu: 'home',
         kelas: ['Xiaomi', 'Oppo', 'Vivo'],
         kelasBaru: "",
-        numbers: [1, 2, 3, 4, 5]
     },
     methods: {
         getName: function () {
