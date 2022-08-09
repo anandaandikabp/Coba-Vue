@@ -13,16 +13,7 @@
     <div id="app">
         <header-component></header-component>
         <main>
-            <h3>Form Submit.</h3>
-            <p><input type="text" placeholder="Nama Kelas" v-on:keyup.enter="submit" v-model="kelasBaru"></p>
-
-            <h3>Daftar Kelas {{ kelas.length }}</h3>
-            <template v-if="kelas.length >= 1">
-                <ul>
-                    <li v-for="(item, index) of kelas">{{ index+1 }} - {{ item }}</li>
-                </ul>
-            </template>
-            <li v-else>Kelas Belum Tersedia</li>
+            <kelas></kelas>
         </main>
         <footer-component></footer-component>
     </div>
