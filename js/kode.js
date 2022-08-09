@@ -7,10 +7,12 @@ const vm = new Vue({
         namaDepan: 'Ananda',
         namaBelakang: ' Andika',
         bilangan: 1,
-        link: '<a href="">kelas.baledemy</a>',
-        gambar: 'image/1.jpg',
+        link: '<a href="">Andika</a>',
+        gambar: './assets/image/1.jpg',
         menu: 'home',
-        kelas: []
+        kelas: ['Xiaomi', 'Oppo', 'Vivo'],
+        kelasBaru: "",
+        numbers: [1, 2, 3, 4, 5]
     },
     methods: {
         getName: function () {
@@ -23,7 +25,21 @@ const vm = new Vue({
         },
         handleClick: function () {
             this.bilangan++
-            this.gambar = 'image/phone.png'
+            this.gambar = './assets/image/phone.png'
+        },
+        cariGenap: function (data) {
+            return data.filter(i => {
+                return i % 2 == 0
+            })
+        },
+        gantiMenu: function(data) {
+            this.menu = data
+        },
+        submit: function(event) {
+            let text = event.target.value
+            console.log(text)
+            this.kelas.unshift(this.kelasBaru)
+            this.kelasBaru= ""
         }
     },
     computed: {

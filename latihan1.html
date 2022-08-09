@@ -6,18 +6,7 @@
     <title>Vue JS</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            margin: 5%;
-            font-family: "Quicksand", sans-serif;
-        }
-
-        .active {
-            background: salmon;
-            border: 0;
-            padding: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
@@ -25,7 +14,29 @@
         <header>
             <img :src="gambar" alt="hello" width="200">
             <h1 v-text="name"></h1>
-            <p><input type="text" v-model="name"></p>
+
+            <h3>Form Submit.</h3>
+            <p><input type="text" placeholder="Nama Kelas" v-on:keyup.enter="submit" v-model="kelasBaru"></p>
+
+            <h3>Daftar Kelas {{ kelas.length }}</h3>
+            <template v-if="kelas.length >= 1">
+                <ul>
+                    <li v-for="(item, index) of kelas">{{ index+1 }} - {{ item }}</li>
+                </ul>
+            </template> 
+
+            <li v-else>Kelas Belum Tersedia</li>  
+
+            <h3>Perulangan (1-5)</h3>
+            <ul>
+                <li v-for="x in 5">{{ x }}</li>
+            </ul>
+            
+            <h3>Cari Genap {{ numbers }}</h3>
+            <ul>
+                <li v-for="x in cariGenap(numbers)">{{ x }}</li>
+            </ul>
+
             <p>{{ kelas }}</p>
             <p>
                 <button v-on:click="handleClick()">Ditekan</button>
@@ -39,9 +50,9 @@
                 <label><input type="checkbox" value="Samsu" v-model="kelas">Samsu</label>
             </div>
 
-            <button v-bind:class="{active: menu === 'home'}" v-on:click="menu = 'home'">Home</button>
-            <button v-bind:class="{active: menu === 'about'}" v-on:click="menu = 'about'">About</button>
-            <button v-bind:class="{active: menu === 'blog'}" v-on:click="menu = 'blog'">Blog</button>
+            <a v-bind:class="{active: menu === 'home'}" href="#" v-on:click.prevent="gantiMenu('home')">Home</a>
+            <a v-bind:class="{active: menu === 'about'}" href="#"  v-on:click.prevent="gantiMenu('about')">About</a>
+            <a v-bind:class="{active: menu === 'blog'}" href="#" v-on:click.prevent="gantiMenu('blog')">Blog</a>
 
         </header>
         <footer id="footer">
@@ -50,7 +61,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
-    <script src="kode.js"></script>
+    <script src="./js/kode.js"></script>
 </body>
 
 </html>
