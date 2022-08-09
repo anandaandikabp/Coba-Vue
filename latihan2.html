@@ -11,9 +11,10 @@
 
 <body>
     <div id="app">
-        <header-component></header-component>
+        <header-component nama="VueJS" image="./assets/image/1.jpg"></header-component>
         <main>
-            <kelas></kelas>
+            <kelas v-bind:items="kelas" :input="kelasBaru"></kelas>
+            <home></home>
         </main>
         <footer-component></footer-component>
     </div>
